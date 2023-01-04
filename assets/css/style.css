@@ -1,0 +1,152 @@
+:root {
+	--accent-color: #000;
+}
+
+.b2-team {
+	position: relative;
+    list-style: none;
+	padding: 0;
+    margin: 0;
+}
+
+.b2-team > li {
+	position: relative;
+	margin-bottom: 42px;
+}
+
+.b2-team-member {
+	position: relative;
+}
+
+.b2-team-member-top {
+	display: flex;
+	justify-content: space-between;
+}
+
+.b2-team-member-top > div:nth-child(1) {
+	width: 320px;
+}
+
+.b2-team-member-img {
+	position: relative;
+}
+
+.b2-team-member-img::before {
+	content: "";
+	position: absolute;
+	top: 16px;
+	left: -16px;
+	width: 100%;
+	height: 100%;
+	background-color: var(--accent-color);
+	pointer-events: none;
+	z-index: -1;
+}
+
+.b2-team-member-img img {
+	border: 1px solid var(--accent-color);
+}
+
+.b2-team-member-top > div:nth-child(2) {
+	width: calc(100% - 320px);
+}
+
+.b2-team-member-cd {
+	position: relative;
+	padding-left: 30px;
+	margin-top: 42px;
+}
+
+.b2-team-member-cd::before {
+	content: "";
+	position: absolute;
+	top: -22px;
+	left: 30px;
+	width: 120px;
+	height: 3px;
+	background-color: var(--accent-color);
+}
+
+.b2-team-member-cd h2 {
+	font-size: 42px;
+}
+
+.b2-team-member-cd h3 {
+	font-size: 20px;
+}
+
+.b2-team-member-cd-contact {
+    list-style: none;
+	padding: 0;
+    margin: 0 0 16px;
+}
+
+.b2-team-member-cd-contact li {
+	margin-bottom: 12px;
+}
+
+.b2-team-member-cd-contact li a {
+	color: var(--accent-color);
+}
+
+.b2-team-member-cd-sm {
+    list-style: none;
+	padding: 0;
+    margin: 0;
+}
+
+.b2-team-member-cd-sm li {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 12px;
+}
+
+.b2-team-member-cd-sm li a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	font-size: 16px;
+	color: #fff;
+	background-color: var(--accent-color);
+}
+
+.b2-team-member-bio {
+    height: 90px;
+    overflow: hidden;
+}
+
+.b2-team-member-bio.show-bio {
+    height: auto;
+}
+
+.b2-team-member-bio + a {
+	font-weight: 600;
+	color: var(--accent-color);
+}
+
+@media only screen and (max-width: 991px) {
+	.b2-team-member-top {
+		display: block;
+	}
+
+	.b2-team-member-top > div {
+		width: 100% !important;
+	}
+
+	.b2-team-member-img {
+		max-width: 300px;
+		margin: 0 auto;
+	}
+
+	.b2-team-member-cd {
+		padding-left: 0;
+		margin-top: 70px;
+	}
+
+	.b2-team-member-cd::before {
+		left: 0;
+	}
+}
