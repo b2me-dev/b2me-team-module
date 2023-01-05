@@ -220,6 +220,7 @@
 			$attr = shortcode_atts(array(
 				'class' => '',
 				'limit' => '',
+				'layout' => '',
 			), $attr);
 
 			// Query
@@ -255,7 +256,7 @@
 
 					if (isset($phone)) {
 						$phone_element = '<li>
-							<a href="tel:'. $phone .'" title="Call '. $name .'" rel="nofollow">
+							<a href="tel:'. $phone .'" title="Call '. $name .'" rel="nofollow" class="members-phone">
 								<i class="fa-solid fa-phone"></i> '. $phone .'
 							</a>
 						</li>';
@@ -263,7 +264,7 @@
 
 					if (isset($email)) {
 						$email_element = '<li>
-							<a href="mailto:'. $email .'" title="Email '. $name .'" rel="nofollow">
+							<a href="mailto:'. $email .'" title="Email '. $name .'" rel="nofollow" class="members-email">
 								<i class="fa-solid fa-envelope"></i> '. $email .'
 							</a>
 						</li>';
@@ -271,7 +272,7 @@
 
 					if (isset($facebook)) {
 						$facebook_element = '<li>
-							<a href="'. $facebook .'" title="Facebook" target="_blank">
+							<a href="'. $facebook .'" title="Facebook" target="_blank" class="members-facebook">
 								<i class="fa-brands fa-facebook-f"></i>
 							</a>
 						</li>';
@@ -279,7 +280,7 @@
 
 					if (isset($twitter)) {
 						$twitter_element = '<li>
-							<a href="'. $twitter .'" title="Twitter" target="_blank">
+							<a href="'. $twitter .'" title="Twitter" target="_blank" class="members-twitter">
 								<i class="fa-brands fa-twitter"></i>
 							</a>
 						</li>';
@@ -287,7 +288,7 @@
 
 					if (isset($instagram)) {
 						$instagram_element = '<li>
-							<a href="'. $instagram .'" title="Instagram" target="_blank">
+							<a href="'. $instagram .'" title="Instagram" target="_blank" class="members-instagram">
 								<i class="fa-brands fa-instagram"></i>
 							</a>
 						</li>';
@@ -295,7 +296,7 @@
 
 					if (isset($linkedin)) {
 						$linkedin_element = '<li>
-							<a href="'. $linkedin .'" title="LinkedIn" target="_blank">
+							<a href="'. $linkedin .'" title="LinkedIn" target="_blank" class="members-linkedin">
 								<i class="fa-brands fa-linkedin-in"></i>
 							</a>
 						</li>';
@@ -327,7 +328,7 @@
 										<div class="b2-team-member-bio">
 											'. $bio .'
 										</div>
-										<a href="#" title="Read More...">Read More...</a>
+										<a href="#" title="Know More" class="b2-link">Know More</a>
 									</div>
 								</div>
 							</div>
@@ -338,9 +339,64 @@
 			endif;
 	
 			// Construct HTML
-			$html = '<ul class="b2-team">
+			$html = '<ul class="b2-team '. $attr['layout'] .'">
 				'. $members .'
-			</ul>';
+			</ul>
+			<div class="b2-team-popup">
+				<div class="b2-team-popup-inner">
+					<div class="b2-team-popup-close">
+						<a href="#" title="Close"><i class="fa-solid fa-x"></i></a>
+					</div>
+					<div class="b2-team-member aos-init aos-animate" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+						<div class="b2-team-member-top">
+							<div>
+								<div class="b2-team-member-img">
+									<img src="#" alt="Members Name" class="b2-img-responsive">
+								</div>
+							</div>
+							<div>
+								<div class="b2-team-member-cd">
+									<h2>Members Name</h2>
+									<h3>Position</h3>
+									<ul class="b2-team-member-cd-contact">
+										<li>
+											<a href="tel:---" title="Call Members Name" rel="nofollow" class="members-phone">
+												<i class="fa-solid fa-phone"></i> --- </a>
+										</li>
+										<li>
+											<a href="mailto:---" title="Email Members Name" rel="nofollow" class="members-email">
+												<i class="fa-solid fa-envelope"></i> --- </a>
+										</li>
+									</ul>
+									<ul class="b2-team-member-cd-sm">
+										<li>
+											<a href="https://www.facebook.com/b2memarketing/" title="Facebook" target="_blank" class="members-facebook">
+												<i class="fa-brands fa-facebook-f"></i>
+											</a>
+										</li>
+										<li>
+											<a href="https://twitter.com/B2meM" title="Twitter" target="_blank" class="members-twitter">
+												<i class="fa-brands fa-twitter"></i>
+											</a>
+										</li>
+										<li>
+											<a href="https://www.instagram.com/b2memarketing/" title="Instagram" target="_blank" class="members-instagram">
+												<i class="fa-brands fa-instagram"></i>
+											</a>
+										</li>
+										<li>
+											<a href="https://au.linkedin.com/company/b2me-marketing" title="LinkedIn" target="_blank" class="members-linkedin">
+												<i class="fa-brands fa-linkedin-in"></i>
+											</a>
+										</li>
+									</ul>
+									<div class="b2-team-member-bio"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>';
 	
 			return $html;
 
